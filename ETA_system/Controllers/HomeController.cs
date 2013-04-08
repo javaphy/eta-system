@@ -27,8 +27,8 @@ namespace ETA_system.Controllers
                                     PlaceOrderTime = Convert.ToDateTime("2013-03-16"),
                                     PrintOrderTime = Convert.ToDateTime("2013-03-22"),
                                     ReceivedInPreflightTime = DateTime.Now,
-                                    EstimatedTimeofComplete = ReceivedInPreflightTime + 5,
-                                    PlannedDeliveryTime = Convert.ToDateTime("2013-04-15")
+                                    EstimatedTimeofComplete = DateTime.Now.AddDays(5),
+                                    PlannedDeliveryTime = Convert.ToDateTime("2013-04-15"),
                                     ActualPreflightCompleteTime = Convert.ToDateTime("2013-04-09"),
                                     TechName = "Jackie/1226",
                                     Comments = "Checklist / Mac address:00.26.73.52.0a.6a",

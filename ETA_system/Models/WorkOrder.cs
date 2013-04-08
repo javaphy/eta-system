@@ -10,82 +10,13 @@ namespace ETA_system.Models
     {
         public virtual int Id { get; set; }
 
-        private int orderNumber;
-        
-        public virtual string OrderNumber 
-        {
-            get { return orderNumber; }
+        public virtual string OrderNumber { get; set; }
 
-            set
-            {
-                if(Validator.Valide() == true)
-                {
-                    
-                }
-                else
-                {
-                    
-                }
-                orderNumber = value;
-            }
-        }
-        
-        private string customerName;
+        public virtual string CustomerName { get; set; }
 
-        public virtual string CustomerName
-        {
-            get { return customerName; }
+        public virtual string MachineModel { get; set; }
 
-            set
-            {
-                if(Valiadtor.Valide() == true)
-                {
-                    sdjkfjklsdjf
-                }
-                if (customerName == "XXXXX")
-                    throw new NotFiniteNumberException();
-
-                customerName = value;
-            }
-        }
-
-        private string machineModel;
-
-        public virtual string MachineModel
-        {
-            get { return machineModel; }
-
-            set
-            {
-                if(Valiadtor.Valide() == true)
-                {
-                    sdjkfjklsdjf
-                }
-                if (machineModel == "XXXXX")
-                    throw new NotFiniteNumberException();
-
-                machineModel = value;
-            }
-        }
-
-        private string machineSerialNumber;
-
-        public virtual string MachineSerialNumber
-        {
-            get { return machineSerialNumber; }
-
-            set
-            {
-                if(Validator.Valide() == true)
-                {
-                    jlhjhlkj
-                }
-                if (machineSerialNumber == "XXXXX")
-                    throw new NotFiniteNumberException();
-
-                machineSerialNumber = value;
-            }
-        }
+        public virtual string MachineSerialNumber { get; set; }
 
         public virtual string Status { get; set; }
 
