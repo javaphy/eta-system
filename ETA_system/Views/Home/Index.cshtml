@@ -1,8 +1,47 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "ETA form";
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+@ViewBag.Message
+
+<form action="@Url.Action("Add")" method="POST">
+    <label for="OrderNumber">Order Number</label>
+    <input type="text" name="OrderNumber"/>
+
+    <label for="CustomerName">Customer Name</label>
+    <input type="text" name="CustomerName"/>
+
+    <label for="MachineModel">Machine Model</label>
+    <input type="text" name="MachineModel"/>
+
+    <label for="MachineSerialNumber">Machine Serial Number</label>
+    <input type="text" name="MachineSerialNumber"/>
+
+    <label for="Status">Status</label>
+    <input type="text" name="Status"/>
+
+    <label for="Province">Province</label>
+    <select name="Province">
+        @foreach(string province in ViewBag.Provinces)
+        {
+            <option value="@province">@province</option>
+        }
+    </select>
+    
+    <label for="PlaceOrderTime">Place Order Time</label>
+    <input type="date" name="PlaceOrderTime"/>
+
+    <label for="PrintOrderTime">Print Order Time</label>
+    <input type="date" name="PrintOrderTime"/>
+
+    <label for="PlannedDeliveryTime">Planned Delivery Time</label>
+    <input type="date" name="PlannedDeliveryTime"/>
+
+    <label for="TechName">Tech Name</label>
+    <input type="text" name="TechName"/>
+
+    <label for="Comments">Comments</label>
+    <textarea name="Comments"></textarea>
+    
+    <input type="submit" value="Submit"/>
+</form>

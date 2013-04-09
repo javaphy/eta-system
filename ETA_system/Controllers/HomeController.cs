@@ -9,36 +9,34 @@ namespace ETA_system.Controllers
     {
         private readonly IRepository<WorkOrder> repository;
 
+        private readonly string[] provinces = new[]
+                {
+                    "Ontario", "Quebec", "British Columbia", "Alberta",
+                    "Nova Scotia", "Saskatchewan", "Manitoba", "New Brunswick", "Prince Edward Island",
+                    "Newfoundland and Labrador"
+                };
+
         public HomeController()
         {
             repository = new Repository<WorkOrder>();
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
-            var workOrder = new WorkOrder
-                                {
-                                    OrderNumber = "800341482",
-                                    CustomerName = "TD Bank",
-                                    MachineModel = "MP C4500",
-                                    MachineSerialNumber = "S7914CB1027",
-                                    Status = "Waiting",
-                                    Province = "Ontario",
-                                    PlaceOrderTime = Convert.ToDateTime("2013-03-16"),
-                                    PrintOrderTime = Convert.ToDateTime("2013-03-22"),
-                                    ReceivedInPreflightTime = DateTime.Now,
-                                    EstimatedTimeofComplete = DateTime.Now.AddDays(5),
-                                    PlannedDeliveryTime = Convert.ToDateTime("2013-04-15"),
-                                    ActualPreflightCompleteTime = Convert.ToDateTime("2013-04-09"),
-                                    TechName = "Jackie/1226",
-                                    Comments = "Checklist / Mac address:00.26.73.52.0a.6a",
-
-                                };
-            
-
-            repository.SaveOrUpdate(workOrder);
-
+            ViewBag.Provinces = provinces;
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(WorkOrder input)
+        {
+            input.ReceivedInPreflightTime = DateTime.Now;
+            input.EstimatedTimeofComplete = DateTime.Now.AddDays(5);
+
+            repository.SaveOrUpdate(input);
+
+            return RedirectToAction("Index");
         }
     }
 }
