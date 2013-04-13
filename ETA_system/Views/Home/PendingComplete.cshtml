@@ -1,0 +1,21 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Change Status";
+}
+
+
+<form action="@Url.Action("PendingComplete")" method="POST">
+    <div class="wrap">
+        <label for="OrderNumber">Order Number</label>
+        <input type="text" name="OrderNumber"/>
+    </div>
+    
+    <div class="wrap">
+        <label for="Comments">Comments</label>
+        <textarea name="Comments"></textarea>
+    </div>
+
+    <input type="submit" name="Submit" value="Pending" />
+    <input type="submit" name="Submit" value="Complete" />
+</form>

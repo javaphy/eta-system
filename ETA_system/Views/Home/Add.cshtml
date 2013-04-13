@@ -1,0 +1,70 @@
+﻿@using ETA_system.Models
+@{
+    ViewBag.Title = "ETA form";
+}
+
+@ViewBag.Message
+
+<form action="@Url.Action("Add")" method="POST">
+    <div class="wrap">
+        <label for="OrderNumber">Order Number</label>
+        <input type="text" name="OrderNumber"/>
+    </div>
+
+    <div class="wrap">
+        <label for="CustomerName">Customer Name</label>
+        <input type="text" name="CustomerName"/>
+    </div>
+
+    <div class="wrap">
+        <label for="MachineModel">Machine Model</label>
+        <input type="text" name="MachineModel"/>
+    </div>
+    
+    <div class="wrap">
+        <label for="MachineSerialNumber">Machine Serial Number</label>
+        <input type="text" name="MachineSerialNumber"/>
+    </div>
+    <div class="wrap">
+        <label for="Status">Status</label>
+        <select name="Status">
+            <option value="@WorkOrder.StatusTypes.Picking">Picking</option>
+            <option value="@WorkOrder.StatusTypes.Waiting">Waiting</option>
+            <option value="@WorkOrder.StatusTypes.Processing">Processing</option>
+            <option value="@WorkOrder.StatusTypes.Pending">Pending</option>
+            <option value="@WorkOrder.StatusTypes.Complete">Complete</option>
+        </select>
+    </div>
+    <div class="wrap">
+        <label for="Province">Province</label>
+        <select name="Province">
+            @foreach(string province in ViewBag.Provinces)
+            {
+                <option value="@province">@province</option>
+            }
+        </select>
+    </div>
+    <div class="wrap">
+        <label for="PlaceOrderTime">Place Order Time</label>
+        <input type="date" name="PlaceOrderTime"/>
+    </div>
+    <div class="wrap">
+        <label for="PrintOrderTime">Print Order Time</label>
+        <input type="date" name="PrintOrderTime"/>
+    </div>
+    <div class="wrap">
+        <label for="PlannedDeliveryTime">Planned Delivery Time</label>
+        <input type="date" name="PlannedDeliveryTime"/>
+    </div>
+    
+    <div class="wrap">
+        <label for="TechName">Tech Name</label>
+        <input type="text" name="TechName"/>
+    </div>
+    <div class="wrap">
+        <label for="Comments">Comments</label>
+        <textarea name="Comments"></textarea>
+    </div>
+
+    <input type="submit" value="Submit" />
+</form>
